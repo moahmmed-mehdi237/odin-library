@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: -5rem;
+}
+
+.library {
+  width: 70vw;
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background-color: bisque;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-radius: 2rem;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: gray;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.read{
+  background-color: coral ;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  border-radius: 1rem;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h4 .author {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+button{
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 1em;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: -1px 1px 5px black
+}
+
+button:hover{
+  opacity: 0.8;
+}
+button:active{
+  box-shadow: none;
+}
