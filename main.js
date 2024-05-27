@@ -29,6 +29,12 @@ const theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, false);
 addBookToLibrary(theHobbit)
 addBookToLibrary(theHobbit)
 addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
+addBookToLibrary(theHobbit)
 
 const displayLibrary = () =>{
   for (let index = 0; index < myLibrary.length; index++) {
