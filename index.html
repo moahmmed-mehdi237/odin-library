@@ -24,14 +24,14 @@
             <input type="number" id="num-pages" />
           </li>
           <li>
-            <button onclick="toggleForm(event)">Done</button>
+            <button onclick="handleAddBookDone(event)">Done</button>
           </li>
         </ul>
       </form>
     </div>
     <header>
       <h1>Library</h1>
-      <button onclick="toggleForm(event)">
+      <button onclick="handleAddBook()">
         <img src="./images/plus.svg" width="20" />
         <p>Add book</p>
       </button>
@@ -44,7 +44,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
       <div class="card">
         <p>booktitle</p>
@@ -53,7 +53,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
       <div class="card">
         <p>booktitle</p>
@@ -62,7 +62,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
       <div class="card">
         <p>booktitle</p>
@@ -71,7 +71,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
       <div class="card">
         <p>booktitle</p>
@@ -80,7 +80,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
       <div class="card">
         <p>booktitle</p>
@@ -89,7 +89,7 @@
         <button class="colour not read" onclick="readbtn(event)">
           not read
         </button>
-        <button>remove</button>
+        <button onclick="removebtn()">remove</button>
       </div>
     </main>
     <footer>
@@ -98,5 +98,5 @@
         >Mohammed Mehdi <img src="./images/github.svg" width="30"
       /></a>
     </footer>
-  </body>
+</body>
 </html>
