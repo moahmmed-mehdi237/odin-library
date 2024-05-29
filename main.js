@@ -1,7 +1,9 @@
 const myLibrary = [];
 const library = document.getElementById('library');
+const dataEntry = document.getElementById('data');
 
 function Book(title, author, numPages, isRead) {
+  this.id = 0;
   this.title = title;
   this.author = author;
   this.numPages = numPages;
@@ -9,72 +11,68 @@ function Book(title, author, numPages, isRead) {
   this.info = function () {
     return `${book.title} by ${book.author}, ${book.numPages} pages, ${read(book.isRead)}`;
   };
-
-
+  this.setId = function(id){
+    this.id = id;
+  }
+  this.changeRead = function(){
+    this.isRead = !this.isRead;
+  }
 }
 
-function read(bool) {
-  if (bool) {
-    return "has been read";
+const read = (isRead) =>{
+  if (isRead) {
+    return 'the book has been read'
   } else {
-    return "not yet read";
+    return 'the book has not been read'
   }
 }
 
-function addBookToLibrary(book) {
-  myLibrary.unshift(book)
-}
-
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, false);
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-addBookToLibrary(theHobbit)
-
-const displayLibrary = () =>{
-  for (let index = 0; index < myLibrary.length; index++) {
-    createCard(myLibrary[index]);
-    
-  }
+const handleAddBook = () => {
 
 }
 
-const createCard = (book , index) =>{
-  const card = document.createElement('div');
-  const pic = document.createElement('div');
-  const info = document.createElement('div');
-  const bookTitle = document.createElement('h4')
-  const bookAuthor = document.createElement('p')
-  const bookPages = document.createElement('p')
-  const bookRead = document.createElement('input')
-  const bookReadLabel = document.createElement('label')
-  const removebtn = document.createElement('button')
-  card.classList.add('card');
-  pic.classList.add('pic');
-  info.classList.add('info');
-  bookTitle.innerText = book.title;
-  bookAuthor.innerText = book.author;
-  bookPages.innerText = book.pages;
-  bookRead.type = 'checkbox';
-  bookRead.id = index
-  bookReadLabel.htmlFor = index
-  bookReadLabel.innerText = 'finished';
-  removebtn.innerText ='Remove'
+
+const toggleForm = () =>{
+  dataEntry.classList.toggle('active')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const calculateNextId = () =>{
+  const libraryLength = myLibrary.length;
+  const lastItem = myLibrary[libraryLength-1]
+  const newId = lastItem.id + 1;
+}
+
+
+
+const createCard = (book) =>{
   
-  info.appendChild(bookTitle);
-  info.appendChild(bookAuthor);
-  info.appendChild(bookPages);
-  info.appendChild(bookRead);
-  info.appendChild(bookReadLabel);
-  info.appendChild(removebtn);
-  card.appendChild(pic);
-  card.appendChild(info);
-  library.appendChild(card)
 }
 
-displayLibrary()
+
+const btn = document.querySelector('button')
+btn.innerText; 
+
+const readbtn = (e) =>{
+  const btn = e.target;
+  btn.classList.toggle('not');
+  if (btn.textContent === 'read') {
+    btn.innerText = 'not read'
+    console.log('the book has been unread')
+  } else {
+    btn.innerText = 'read'
+    console.log('the book has now been read')
+  }
+}
