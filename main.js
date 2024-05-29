@@ -34,7 +34,7 @@ const read = (isRead) => {
 
 const handleAddBook = () => {
   toggleForm();
-  bookTitleInput.focus()
+  bookTitleInput.focus();
 };
 
 const handleAddBookDone = (e) => {
@@ -52,6 +52,7 @@ const handleAddBookDone = (e) => {
     newBook.setId(calculateNextId());
     addToLibrary(newBook);
     createCard(newBook);
+    clearInputs();
     console.log(newBook.info());
     console.log(myLibrary);
   }
@@ -65,8 +66,15 @@ const addToLibrary = (book) => {
   myLibrary.push(book);
 };
 
-const removebtn = () => {
-  console.log('this should be removed');
+const removebtn = (e) => {
+  const cardId = e.target.parentElement.id;
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].id == cardId) {
+      myLibrary.splice(i, 1);
+      e.target.parentElement.remove();
+      break;
+    }
+  }
 };
 
 const calculateNextId = () => {
@@ -82,6 +90,15 @@ const btn = document.querySelector("button");
 btn.innerText;
 
 const readbtn = (e) => {
+  const cardId = e.target.parentElement.id;
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].id == cardId) {
+      myLibrary[i].isRead = !myLibrary[i].isRead;
+      console.log(myLibrary[i].info());
+      break;
+    }
+  }
+
   const btn = e.target;
   btn.classList.toggle("not");
   if (btn.textContent === "read") {
@@ -118,5 +135,21 @@ const createCard = (book) => {
   container.appendChild(removebutton);
   removebutton.addEventListener("click", removebtn);
   removebutton.innerText = "remove";
+
+  container.id = book.id;
   library.appendChild(container);
 };
+
+const clearInputs = () => {
+  bookAuthorInput.value = "";
+  bookTitleInput.value = "";
+  numPagesInput.value = "";
+};
+
+const displayLibrary = () => {
+  myLibrary.forEach((book) => {
+    createCard(book);
+  });
+};
+
+displayLibrary();
